@@ -21,3 +21,12 @@ webpack.optimize.CommonsChunkPlugin
 
 # css样式处理
 loader安装和单独打包配置css-loader、style-loader、extract-text-webpack-plugin
+
+# webpack对html模板的处理
+html-webpack-plugin，html-loader可以将通用html模块到一个单独文件，通过<%=(html-loader!./path%>导入
+
+# 对图片的打包处理
+url-loader，file-loader
+
+# webpack-dev-server实现热更新
+配置好开发环境下的环境变量
