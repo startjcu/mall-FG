@@ -1,2 +1,23 @@
 # mall-FG
 电商网站前台前端项目
+
+# 项目初始化
+在建好项目目录后，在根目录下执行npm init命令
+
+# 安装webpack版本1.15.0
+在全局和开发环境中都要安装这个版本，4.0后的版本变化很大
+
+# 在开发环境中安装依赖
+npm install webpack@1.15.0 -D
+其中-D是--save-dev的简写
+
+# jquery的引入问题
+若是使用npm安装，则每个文件中都要用require引入才能使用
+故采用在首页中加载cdn文件的方式，全局引入
+在webpack中配置扩展，可以在文件中引入window下的jQuery
+
+# 全局通用模块配置
+webpack.optimize.CommonsChunkPlugin
+
+# css样式处理
+loader安装和单独打包配置css-loader、style-loader、extract-text-webpack-plugin
