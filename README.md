@@ -30,3 +30,9 @@ url-loader，file-loader
 
 # webpack-dev-server实现热更新
 配置好开发环境下的环境变量
+
+# 通用工具类的封装
+在util下创建_mm.js
+
+# 路径别名配置，方便引入其他文件，同时配置开发服务器代理
+在webpack.config.js中的resolve下配置alias，devServer

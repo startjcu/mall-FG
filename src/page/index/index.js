@@ -1,6 +1,9 @@
-require('./index.css')
-var $$ = require('jquery')
+var _mm = require('util/_mm.js')
 
-$$('body').html('hello world, this is good')
+var html = '<div>{{content}}</div>'
 
-console.log('index')
+var data = {
+  content: 'hello wrold'
+}
+
+console.log(_mm.renderHtml(html, data))

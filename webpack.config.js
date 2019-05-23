@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlPlugin = require('html-webpack-plugin')
 
 //环境变量配置，dev/online
-var WEBPACK_DEV=process.env.WEBPACK_DEV ||'dev'
+var WEBPACK_DEV = process.env.WEBPACK_DEV || 'dev'
 
 //获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name) {
@@ -36,6 +36,14 @@ var config = {
       { test: /\.(gif|png|jpg|woff|svg|eot|ttf)$\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' }
     ]
   },
+  resolve: {
+    alias: {
+      util: __dirname + '/src/util',
+      page: __dirname + '/src/page',
+      service: __dirname + '/src/service',
+      image: __dirname + '/src/image',
+    }
+  },
   plugins: [
     //将独立通用模块打包到js/base.js
     new webpack.optimize.CommonsChunkPlugin({
@@ -47,10 +55,20 @@ var config = {
     //html模板的处理，自动导入css和js文件
     new HtmlPlugin(getHtmlConfig('index')),
     new HtmlPlugin(getHtmlConfig('login'))
-  ]
+  ],
+  devServer: {
+    port: 8088,
+    inline: true,
+    proxy: {
+      '**/*.do': {
+        target: 'http://test.happymmall.com',
+        changeOrigin: true
+      }
+    }
+  }
 }
 
-if('dev'===WEBPACK_DEV){
+if ('dev' === WEBPACK_DEV) {
   config.entry.common.push('webpack-dev-server/client?http://localhost:8088/')
 }
 
