@@ -1,3 +1,2 @@
-module.exports = {
-  test: 1234
-}
+require('./layout.css')
+require('node_modules/font-awesome/css/font-awesome.css')
