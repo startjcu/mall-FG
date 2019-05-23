@@ -6,11 +6,12 @@ var HtmlPlugin = require('html-webpack-plugin')
 var WEBPACK_DEV = process.env.WEBPACK_DEV || 'dev'
 
 //获取html-webpack-plugin参数的方法
-var getHtmlConfig = function (name) {
+var getHtmlConfig = function (name, title) {
   return {
     template: './src/view/' + name + '.html',
     filename: 'view/' + name + '.html',
     favicon: './favicon.ico',
+    title: title,
     inject: true,
     hash: true,
     chunks: ['common', name]
@@ -22,6 +23,7 @@ var config = {
     common: ['./src/page/common/index.js'],
     index: ['./src/page/index/index.js'],
     login: ['./src/page/login/index.js'],
+    result: ['./src/page/result/index.js'],
   },
   output: {
     path: './dist',
@@ -56,8 +58,9 @@ var config = {
     //把css打包到独立文件中
     new ExtractTextPlugin('css/[name].css'),
     //html模板的处理，自动导入css和js文件
-    new HtmlPlugin(getHtmlConfig('index')),
-    new HtmlPlugin(getHtmlConfig('login'))
+    new HtmlPlugin(getHtmlConfig('index','首页')),
+    new HtmlPlugin(getHtmlConfig('login','用户登录')),
+    new HtmlPlugin(getHtmlConfig('result','操作结果'))
   ],
   devServer: {
     port: 8088,
