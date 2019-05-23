@@ -10,6 +10,7 @@ var getHtmlConfig = function (name) {
   return {
     template: './src/view/' + name + '.html',
     filename: 'view/' + name + '.html',
+    favicon: './favicon.ico',
     inject: true,
     hash: true,
     chunks: ['common', name]
