@@ -5,8 +5,8 @@ var _mm = require('util/_mm.js')
 //导航
 var header = {
   init: function () {
+    this.onLoad()
     this.bindEvent()
-    return this
   },
   onLoad: function () {
     var keyword = _mm.getUrlParam('keyword')
@@ -40,4 +40,4 @@ var header = {
   }
 }
 
-module.exports = header.init()
+header.init()
