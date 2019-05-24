@@ -23,6 +23,7 @@ var config = {
     common: ['./src/page/common/index.js'],
     index: ['./src/page/index/index.js'],
     'user-login': ['./src/page/user-login/index.js'],
+    'user-register': ['./src/page/user-register/index.js'],
     result: ['./src/page/result/index.js'],
   },
   output: {
@@ -60,6 +61,7 @@ var config = {
     //html模板的处理，自动导入css和js文件
     new HtmlPlugin(getHtmlConfig('index', '首页')),
     new HtmlPlugin(getHtmlConfig('user-login', '用户登录')),
+    new HtmlPlugin(getHtmlConfig('user-register', '用户注册')),
     new HtmlPlugin(getHtmlConfig('result', '操作结果'))
   ],
   devServer: {
