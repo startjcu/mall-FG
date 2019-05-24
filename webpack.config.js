@@ -22,7 +22,7 @@ var config = {
   entry: {
     common: ['./src/page/common/index.js'],
     index: ['./src/page/index/index.js'],
-    login: ['./src/page/login/index.js'],
+    'user-login': ['./src/page/user-login/index.js'],
     result: ['./src/page/result/index.js'],
   },
   output: {
@@ -58,9 +58,9 @@ var config = {
     //把css打包到独立文件中
     new ExtractTextPlugin('css/[name].css'),
     //html模板的处理，自动导入css和js文件
-    new HtmlPlugin(getHtmlConfig('index','首页')),
-    new HtmlPlugin(getHtmlConfig('login','用户登录')),
-    new HtmlPlugin(getHtmlConfig('result','操作结果'))
+    new HtmlPlugin(getHtmlConfig('index', '首页')),
+    new HtmlPlugin(getHtmlConfig('user-login', '用户登录')),
+    new HtmlPlugin(getHtmlConfig('result', '操作结果'))
   ],
   devServer: {
     port: 8088,
