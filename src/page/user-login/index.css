@@ -34,6 +34,7 @@
   border: 1px solid red;
   color: red;
   background: #fde9e9;
+  display: none;
 }
 
 .user-con .user-box .error-item .error-icon {
@@ -75,7 +76,7 @@
 
 .user-con .user-box .btn-submit {
   width: 100%;
-  padding: 6px 0;
+  padding: 2px 0;
   text-align: center;
   font-size: 20px;
 }
